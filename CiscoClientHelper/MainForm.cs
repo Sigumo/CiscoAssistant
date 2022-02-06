@@ -29,6 +29,7 @@ namespace CiscoClientHelper
             };
 
             openSettingsButton.Text = Strings.Settings;
+            exitButton.Text = Strings.Exit;
 
             contextMenuStrip.Items.AddRange(new ToolStripItem[] {
                 openMenuItem,
@@ -43,23 +44,29 @@ namespace CiscoClientHelper
             exitMenuItem.Click += new EventHandler(ExitMenuItem_Click);
             Icon = Images.AppIcon16;
             notifyIcon.Icon = Images.AppIcon16;
-            notifyIcon.Visible = true;
+            notifyIcon.Visible = false;
             notifyIcon.Text = Strings.TrayIconDefaultText;
             notifyIcon.ContextMenuStrip = contextMenuStrip;
         }
 
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (WindowState == FormWindowState.Minimized)
-                WindowState = FormWindowState.Normal;
-            Show();
-            Activate();
+            OpenForm();
         }
 
         private void OpenMenuItem_Click(object Sender, EventArgs e)
         {
+            OpenForm();
+        }
+
+        private void OpenForm()
+        {
             if (WindowState == FormWindowState.Minimized)
                 WindowState = FormWindowState.Normal;
+            if (notifyIcon.Visible)
+            {
+                notifyIcon.Visible = false;
+            }
             Show();
             Activate();
         }
@@ -75,6 +82,7 @@ namespace CiscoClientHelper
                 e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
+                notifyIcon.Visible = true;
                 Hide();
             } else
             {
@@ -82,10 +90,15 @@ namespace CiscoClientHelper
             }
         }
 
-        private void openSettingsButton_Click(object sender, EventArgs e)
+        private void OpenSettingsButton_Click(object sender, EventArgs e)
         {
             _settingsForm.ApplySettings();
             _settingsForm.Show();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

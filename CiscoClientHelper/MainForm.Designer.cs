@@ -33,6 +33,7 @@
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.openSettingsButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // notifyIcon
@@ -50,12 +51,20 @@
             resources.ApplyResources(this.openSettingsButton, "openSettingsButton");
             this.openSettingsButton.Name = "openSettingsButton";
             this.openSettingsButton.UseVisualStyleBackColor = true;
-            this.openSettingsButton.Click += new System.EventHandler(this.openSettingsButton_Click);
+            this.openSettingsButton.Click += new System.EventHandler(this.OpenSettingsButton_Click);
+            // 
+            // exitButton
+            // 
+            resources.ApplyResources(this.exitButton, "exitButton");
+            this.exitButton.Name = "exitButton";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.openSettingsButton);
             this.MaximizeBox = false;
             this.Name = "MainForm";
@@ -69,5 +78,6 @@
         private NotifyIcon notifyIcon;
         private ContextMenuStrip contextMenuStrip1;
         private Button openSettingsButton;
+        private Button exitButton;
     }
 }
