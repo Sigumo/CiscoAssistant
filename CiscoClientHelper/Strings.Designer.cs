@@ -151,6 +151,24 @@ namespace CiscoClientHelper {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Assistant is running in the background.
+        /// </summary>
+        public static string TrayBalloonText {
+            get {
+                return ResourceManager.GetString("TrayBalloonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t worry.
+        /// </summary>
+        public static string TrayBalloonTitle {
+            get {
+                return ResourceManager.GetString("TrayBalloonTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cisco Anyconnect Assistant.
         /// </summary>
         public static string TrayIconDefaultText {

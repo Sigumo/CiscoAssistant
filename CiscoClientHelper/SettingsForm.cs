@@ -44,6 +44,7 @@ namespace CiscoClientHelper
         {
             _appSettingsService.UpdateSettings(formSettings);
             _appSettingsService.TrySaveSettings();
+            Hide();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)

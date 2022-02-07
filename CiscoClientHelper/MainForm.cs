@@ -47,6 +47,8 @@ namespace CiscoClientHelper
             notifyIcon.Visible = false;
             notifyIcon.Text = Strings.TrayIconDefaultText;
             notifyIcon.ContextMenuStrip = contextMenuStrip;
+            notifyIcon.BalloonTipTitle = Strings.TrayBalloonTitle;
+            notifyIcon.BalloonTipText = Strings.TrayBalloonText;
         }
 
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -84,6 +86,7 @@ namespace CiscoClientHelper
                 e.Cancel = true;
                 notifyIcon.Visible = true;
                 Hide();
+                notifyIcon.ShowBalloonTip(500);
             } else
             {
                 e.Cancel = false;
