@@ -147,6 +147,12 @@
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="TrayBalloonText" xml:space="preserve">
+    <value>Assistant is running in the background</value>
+  </data>
+  <data name="TrayBalloonTitle" xml:space="preserve">
+    <value>Don't worry</value>
+  </data>
   <data name="TrayIconDefaultText" xml:space="preserve">
     <value>Cisco Anyconnect Assistant</value>
   </data>
